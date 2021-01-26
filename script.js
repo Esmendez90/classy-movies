@@ -14,7 +14,7 @@ var searchBtn = $("#id-searchBtn");
 function searchMovies(event) {
   event.preventDefault();
   var movieSearch = movieInput.val();
-  console.log(movieSearch);
+  //console.log(movieSearch);
 
   var apiKey = "f148652";
   var queryURL = `http://www.omdbapi.com/?t=${movieSearch}&apikey=${apiKey}`;
