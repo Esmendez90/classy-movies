@@ -21,6 +21,7 @@ function getmovieinfo(){
         dataType: "json",
         success: function(data){
             console.log(data);
+
             console.log(data.Title);
             title = data.Title;
             console.log(data.Year);
@@ -31,7 +32,7 @@ function getmovieinfo(){
             plot = data.Plot;
             htmledit();
         }
-    })
+    });
     }
 function htmledit(){
     var html = '<p1> ' + title + '<br> ' + year + '<br> <img src = "'+ poster + '" style = "width:200px;height:300px;"><br>' + plot + '</p1>'
