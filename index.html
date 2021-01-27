@@ -23,7 +23,7 @@
     <!-- Form-list of movie genres-->
 
     <form class="options">
-      <ul>
+      <ul id="id-ul">
         <li
           class="genre"
           data-text-filter="romance"
@@ -72,14 +72,25 @@
     </form>
 
     <!-- User input field and search button-->
-
     <section class="filterGenres">
       <div class="tab-content" style="position: relative">
         <div class="text-filter">
-          <!-- User input field-->
-          <input id="id-movieinput" type="text" placeholder="Search movie" />
-          <!-- Search button-->
-          <input id="id-searchBtn" type="button" value="search" />
+          <!--other-->
+          <ul id="id-ul">
+            <li
+              class="other"
+              data-text-filter="other"
+              style="display: list-item; list-style-type: none"
+            >
+              <input type="checkbox" name="other" id="#gnere6" value="other" />
+              <label for="other">OTHER</label>
+            </li>
+          </ul>
+          <div id="id-searchdiv">
+            <!-- User input field-->
+
+            <!-- Search button-->
+          </div>
         </div>
       </div>
     </section>
