@@ -3,27 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Classy Movies</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="assets/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
   </head>
   <body>
-    <header>
-      <h1>CLASSY MOVIES</h1>
-    </header>
 
-    <form>
+    <!-- Header -->
+    <div class="logo-container">
+      <a class="logo no-snap">
+          <h1 class="logo-img">CLASSY Movies</h1>
+      </a>
+    </div>
+
+    <!-- Form-list of movie genres-->
+
+    <form class="options">
       <ul>
-        <li>Romance<input id="id-romanceCk" type="checkBox" /></li>
-        <li>Action<input id="id-actionCk" type="checkBox" /></li>
-        <li>Comedy<input id="id-comedyCk" type="checkBox" /></li>
-        <li>Drama<input id="id-dramaCk" type="checkBox" /></li>
-        <li>All Genres<input id="id-allgenresCk" type="checkBox" /></li>
-        <li>Other<input id="id-otherCk" type="checkBox" /></li>
+        <li class="genre" data-text-filter="romance" style="display: list-item;list-style-type: none;">
+          <input type="checkbox" name="genre" id="#gnere4" value="romance">
+          <label for="romance">ROMANCE</label>
+        </li>
+
+        <li class="genre" data-text-filter="action" style="display: list-item; list-style-type: none;">
+          <input type="checkbox" name="genre" id="#gnere1" value="action">
+          <label for="action">ACTION</label>
+        </li>
+
+        <li class="genre" data-text-filter="comedy" style="display: list-item;list-style-type: none;">
+          <input type="checkbox" name="genre" id="#gnere2" value="comedy">
+          <label for="comedy">COMEDY</label>
+        </li>
+
+        <li class="genre" data-text-filter="drama" style="display: list-item;list-style-type: none;">
+           <input type="checkbox" name="genre" id="#gnere5" value="drama">
+            <label for="drama">DRAMA</label>
+        </li>
+
+        <li class="genre" data-text-filter="family" style="display: list-item;list-style-type: none;">
+          <input type="checkbox" name="genre" id="#gnere3" value="family">
+          <label for="comedy">FAMILY</label>
+        </li>
       </ul>
-      <input id="id-movieinput" placeholder="Search movie"/>
-      <input id="id-searchBtn" type="button" value="search" />
     </form>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <!-- User input field and search button-->
+  
+    <section class="filterGenres">
+      <div class="tab-content" style="position: relative;">
+        <div class="text-filter">
+          <!-- User input field-->
+          <input id="id-movieinput" type="text" placeholder="Search movie">
+          <!-- Search button-->
+          <input id="id-searchBtn" type="button" value="search"/>
+        </div>
+      </div>
+    </section>
+      
+    <!-- Image of movie 1-->   
+    <div class="col-sm-4">
+      <h3 style = "text-align:center">
+        movie1</h3>
+        <a href="default.asp">
+          <img src="assets/images/gif-explosion-57.gif" alt="Image alt text" style="width:200px;height:200px;">
+        </a>
+    </div>
+
+    <!-- Image of movie 2-->  
+    <div class="col-sm-4">
+      <h3 style = "text-align:center">
+        movie2</h3>
+        <a href="default.asp">
+          <img src="assets/images/giphy-cat.gif" alt="Image alt text" style="width:200px;height:200px;">
+        </a>
+    </div>
+
+    <!-- Image of movie 3-->  
+    <div class="col-sm-4">
+      <p style = "text-align:center">
+       <p id="id-movieName" style = "text-align:center">movie3<br></p> 
+      </p>
+    </div>
+    <script src="assets/script.js"></script>
   </body>
 </html>
