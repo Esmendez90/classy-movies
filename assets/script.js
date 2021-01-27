@@ -1,7 +1,4 @@
 //-------------------------------------vArs----------------------
-var playButton = $("#play-button");
-var welcomePage = $(".welcome-container");
-var displayMainPage = $("#main-page");
 var Buttonfunction;
 var int;
 var movie = "titanic";
@@ -15,9 +12,9 @@ var genre;
 //-------------------------CLICK/UNCLICK----------------------------
 function startMovieSearch() {
   // The Welcome page will hide
-  welcomePage.addClass("hide");
+  $(".welcome-container").addClass("hide");
   // The movie search page will be displayed
-  displayMainPage.removeClass("hide");
+  $("#main-page").removeClass("hide");
 
   var option = new Array(
     document.getElementById("#gnere1").addEventListener("click", one),
@@ -190,4 +187,4 @@ function startMovieSearch() {
 
 // When the user clicks on the playButton then the
 // Movie Search Page will be displayed.
-$(playButton).on("click", startMovieSearch);
+$("#play-button").on("click", startMovieSearch);
