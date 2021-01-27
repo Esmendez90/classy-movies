@@ -35,7 +35,7 @@ function getmovieinfo(){
     });
     }
 function htmledit(){
-    var html = '<p1> ' + title + '<br> ' + year + '<br> <img src = "'+ poster + '" style = "width:200px;height:300px;"><br>' + plot + '</p1>'
+    var html = '<h3> ' + title + '<br> ' + year + '</h3> <p1><img src = "'+ poster + '" style = "width:200px;height:300px;"><br>' + plot +  '</p1>'
     document.getElementById("id-movieName").innerHTML = html;
 }
 getmovieinfo();
