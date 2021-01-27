@@ -1,27 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <header>
-      <h1>CLASSY MOVIES</h1>
-    </header>
+    <link rel="stylesheet" href="style.css" />
+    <title>Classy Movies Project</title>
+</head>
 
-    <form>
-     
-      <ul>
-        <li> Romance<input id="id-romanceCk" type="checkBox" /></li>
-        <li> Action<input id="id-actionCk" type="checkBox" /></li>
-        <li> Comedy<input id="id-comedyCk" type="checkBox" /></li>
-        <li> Drama<input id="id-dramaCk" type="checkBox" /></li>
-        <li> All<input id="id-allCk" type="checkBox" /></li>
-        <li> Other<input id="id-allCk" type="checkBox" /></li>
-      </ul>
-      <input id="id-movieinput" />
-      <input id="id-searchBtn" type="button" value="search" />
-    </form>
-  </body>
+<body>
+
+    <div class="logo-container">
+        <a class="logo no-snap">
+            <h1 class="logo-img">CLASSY Movies</h1>
+        </a>
+    </div>
+
+    <div container="#cmn-wrap">
+        <div class="content-container">
+            <div class="sidebar">
+                <h2 class="movieSearch">Movie Advance Search</h2>
+            </div>
+
+            <section class="filterGneres">
+                <h3>Search by Title<h3>
+                        <div class="tab-content" style="position: relative;">
+                            <div class="text-filter">
+                                <input type="text" placeholder="filter by title">
+                                <a class="clear" style="display: none;">x</a>
+                                <input id="id-searchBtn" type="button" value="search" />
+            </section>
+
+        </div>
+        <div class="options">
+            <h3>Search by Gnere</h3>
+            <ul>
+                <li class="genre" data-text-filter="action" style="display: list-item; list-style-type: none;">
+                    <input type="checkbox" name="genre" id="#gnere1" value="action">
+                    <label for="action">ACTION</label>
+                </li>
+
+                <li class="genre" data-text-filter="comedy" style="display: list-item;list-style-type: none;">
+                    <input type="checkbox" name="genre" id="#gnere2" value="comedy">
+                    <label for="comedy">COMEDY</label>
+                </li>
+
+                <li class="genre" data-text-filter="family" style="display: list-item;list-style-type: none;">
+                    <input type="checkbox" name="genre" id="#gnere3" value="family">
+                    <label for="comedy">FAMILY</label>
+                </li>
+
+
+                <li class="genre" data-text-filter="romance" style="display: list-item;list-style-type: none;">
+                    <input type="checkbox" name="genre" id="#gnere4" value="romance">
+                    <label for="romance">ROMANCE</label>
+                </li>
+
+
+                <li class="genre" data-text-filter="drama" style="display: list-item;list-style-type: none;">
+                    <input type="checkbox" name="genre" id="#gnere5" value="drama">
+                    <label for="drama">DRAMA</label>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+</body>
+
 </html>
