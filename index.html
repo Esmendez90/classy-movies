@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="assets/style.css"/>
     <link rel="stylesheet" href="assets/style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Document</title>
@@ -21,7 +21,7 @@
     <!-- Form-list of movie genres-->
 
     <form class="options">
-      <ul>
+      <ul id="id-ul">
         <li class="genre" data-text-filter="romance" style="display: list-item;list-style-type: none;">
           <input type="checkbox" name="genre" id="#gnere4" value="romance">
           <label for="romance">ROMANCE</label>
@@ -50,14 +50,23 @@
     </form>
 
     <!-- User input field and search button-->
-  
     <section class="filterGenres">
       <div class="tab-content" style="position: relative;">
         <div class="text-filter">
-          <!-- User input field-->
-          <input id="id-movieinput" type="text" placeholder="Search movie">
-          <!-- Search button-->
-          <input id="id-searchBtn" type="button" value="search"/>
+          <!--other-->
+          <ul id="id-ul">
+            <li class="other" data-text-filter="other" style="display: list-item;list-style-type: none;">
+              <input type="checkbox" name="other" id="#gnere6" value="other">
+               <label for="other">OTHER</label>
+           </li>
+          </ul>
+          <div id="id-searchdiv">
+            <!-- User input field-->
+           
+            <!-- Search button-->
+            
+          </div>
+          
         </div>
       </div>
     </section>
@@ -67,7 +76,7 @@
       <h3 style = "text-align:center">
         movie1</h3>
         <a href="default.asp">
-          <img src="assets/images/gif-explosion-57.gif" alt="Image alt text" style="width:200px;height:200px;">
+          <img src="assets/images/gif-explosion-57.gif" alt="Image alt text" style="width:100%;height:200px;">
         </a>
     </div>
 
@@ -76,7 +85,7 @@
       <h3 style = "text-align:center">
         movie2</h3>
         <a href="default.asp">
-          <img src="assets/images/giphy-cat.gif" alt="Image alt text" style="width:200px;height:200px;">
+          <img src="assets/images/giphy-cat.gif" alt="Image alt text" style="width:100%;height:200px;">
         </a>
     </div>
 
