@@ -111,6 +111,7 @@ p1 {
 }
 
 .btn {
+  display: inline-block;
   background-color: #ffdb58;
   width: 200px;
   height: 80px;

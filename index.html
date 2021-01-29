@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -23,9 +23,9 @@
     </p>
 
     <!-- Play button -->
-    <button id="play-button" type="button" class="btn btn-primary btn-lg">
-      <i id="play-button" class="fa fa-play" style="font-size: 50px; color: black"></i>
-    </button>
+    <a href="#" id="play-button" class="btn btn-primary btn-lg">
+      <i class="fa fa-play" style="font-size: 50px; color: black"></i>
+    </a>
 
     <!-- Forrest Gump quote -->
     <p class="quote">
@@ -48,8 +48,8 @@
     <!-- Form-list of movie genres-->
 
     <form class="options">
+      <h3>Search your movie by Genre</h3>
       <ul id="id-ul">
-        <h3>Search your movie by Genre</h3>
         <li class="genre" data-text-filter="romance" style="display: list-item; list-style-type: none">
           <input type="checkbox" name="genre" id="#gnere4" value="romance" />
           <label for="romance">ROMANCE</label>
@@ -82,10 +82,10 @@
       <div class="tab-content" style="position: relative">
         <div class="text-filter">
           <!--other-->
-          <ul id="id-ul">
+          <ul>
             <li class="other" data-text-filter="other" style="display: list-item; list-style-type: none">
               <input type="checkbox" name="other" id="#gnere6" value="other" />
-              <label for="other">Search by <title></label>
+              <label for="other">Search by title</label>
             </li>
           </ul>
           <div id="id-searchdiv">
@@ -118,7 +118,7 @@
       <p style="text-align: center" id="id-movieName" style="text-align: center"></p>
     </div>
   </main>
-  <script src="assets/script.js"></script>
+  <script src='assets/script.js'></script>
 </body>
 
 </html>

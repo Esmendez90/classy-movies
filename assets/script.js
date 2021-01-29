@@ -1,4 +1,5 @@
 //-------------------------------------vArs----------------------
+console.log("my file is working at the top")
 var Buttonfunction;
 var int;
 var movie = "titanic";
@@ -10,7 +11,8 @@ var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=8e35679c";
 var genre;
 
 //-------------------------CLICK/UNCLICK----------------------------
-function startMovieSearch() {
+function startMovieSearch(event) {
+  console.log(event.target);
   // The Welcome page will hide
   $(".welcome-container").addClass("hide");
   // The movie search page will be displayed
@@ -188,3 +190,5 @@ function startMovieSearch() {
 // When the user clicks on the playButton then the
 // Movie Search Page will be displayed.
 $("#play-button").on("click", startMovieSearch);
+console.log("my file is working")
+
