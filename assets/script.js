@@ -6,8 +6,24 @@ var title;
 var year;
 var poster;
 var plot;
+//api 1
 var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=8e35679c";
 var genre;
+//api2
+const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://unogs-unogs-v1.p.rapidapi.com/api.cgi?t=genres",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "c02baffc94msh061b9cb5d9eb126p136c7cjsn011694b76609",
+		"x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com"
+	}
+};
+
+$.ajax(settings).done(function (response) {
+	console.log(response);
+});
 
 //-------------------------CLICK/UNCLICK----------------------------
 function startMovieSearch() {
@@ -144,7 +160,9 @@ function startMovieSearch() {
   }
 
   //-----------------GET MOVIE INFO----------------------
+
   function getmovie() {
+    //api 1
     movie = document.getElementById("id-movieinput").value;
     queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=8e35679c";
     getmovieinfo();
