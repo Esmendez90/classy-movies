@@ -15,7 +15,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="es-style.css" />
 
     <title>Classy Movies App</title>
   </head>
@@ -56,83 +56,56 @@
 
       <!-- Form-list of movie genres-->
 
-      <form class="options">
-        <ul class="id-ul">
-          <li
-            class="genre"
-            data-text-filter="romance"
-            style="display: list-item; list-style-type: none"
-          >
-            <input type="checkbox" name="genre" id="#gnere4" value="romance" />
-            <label for="#gnere4">ROMANCE</label>
+      <form class="movie-genres-container">
+        <ul>
+          <li class="genre" data-text-filter="action">
+            <input type="checkbox" name="genre" id="action" value="action" />
+            <label for="action">ACTION</label>
           </li>
 
-          <li
-            class="genre"
-            data-text-filter="action"
-            style="display: list-item; list-style-type: none"
-          >
-            <input type="checkbox" name="genre" id="#gnere1" value="action" />
-            <label for="#gnere1">ACTION</label>
+          <li class="genre" data-text-filter="comedy">
+            <input type="checkbox" name="genre" id="comedy" value="comedy" />
+            <label for="comedy">COMEDY</label>
           </li>
 
-          <li
-            class="genre"
-            data-text-filter="comedy"
-            style="display: list-item; list-style-type: none"
-          >
-            <input type="checkbox" name="genre" id="#gnere2" value="comedy" />
-            <label for="#gnere2">COMEDY</label>
+          <li class="genre" data-text-filter="family">
+            <input type="checkbox" name="genre" id="family" value="family" />
+            <label for="family">FAMILY</label>
           </li>
 
-          <li
-            class="genre"
-            data-text-filter="drama"
-            style="display: list-item; list-style-type: none"
-          >
-            <input type="checkbox" name="genre" id="#gnere5" value="drama" />
-            <label for="#gnere5">DRAMA</label>
+          <li class="genre" data-text-filter="romance">
+            <input type="checkbox" name="genre" id="romance" value="romance" />
+            <label for="romance">ROMANCE</label>
           </li>
 
-          <li
-            class="genre"
-            data-text-filter="family"
-            style="display: list-item; list-style-type: none"
-          >
-            <input type="checkbox" name="genre" id="#gnere3" value="family" />
-            <label for="#gnere3">FAMILY</label>
+          <li class="genre" data-text-filter="drama">
+            <input type="checkbox" name="genre" id="drama" value="drama" />
+            <label for="drama">DRAMA</label>
+          </li>
+
+          <li class="byTitle" data-text-filter="search-by-title">
+            <input
+              type="checkbox"
+              name="other"
+              id="search-by-title"
+              value="byTitle"
+            />
+            <label for="search-by-title">SEARCH BY TITLE</label>
           </li>
         </ul>
       </form>
 
-      <!-- User input field and search button-->
-      <div class="filterGenres">
-        <div class="tab-content" style="position: relative">
-          <div class="text-filter">
-            <!-- Search by title -->
-            <ul class="id-ul">
-              <li
-                class="other"
-                data-text-filter="other"
-                style="display: list-item; list-style-type: none"
-              >
-                <input
-                  type="checkbox"
-                  name="other"
-                  id="#gnere6"
-                  value="other"
-                />
-                <label for="#gnere6">SEARCH BY TITLE</label>
-              </li>
-            </ul>
-            <div id="id-searchdiv"></div>
-          </div>
-        </div>
+      <!-- Search movie button will be appended to this div -->
+      <div id="searchdiv"></div>
+
+      <!-- Data of searched for movie will be appended here -->
+      <div class="col-sm-4">
+        <div style="text-align: center" id="display-movie-data"></div>
       </div>
 
       <!-- Image of movie 1-->
       <div class="col-sm-4" style="text-align: center">
-        <h3>MOVIE1</h3>
+        <h3>MOVIE 2</h3>
         <a href="default.asp">
           <img
             src="assets/images/gif-explosion-57.gif"
@@ -144,7 +117,7 @@
 
       <!-- Image of movie 2-->
       <div class="col-sm-4" style="text-align: center">
-        <h3>MOVIE2</h3>
+        <h3>MOVIE 3</h3>
         <a href="default.asp">
           <img
             src="assets/images/giphy-cat.gif"
@@ -153,14 +126,9 @@
           />
         </a>
       </div>
-
-      <!-- Image of default movie: Titanic-->
-      <div class="col-sm-4">
-        <p style="text-align: center" id="id-movieName"></p>
-      </div>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="esteban-script.js"></script>
+    <script src="es-script.js"></script>
   </body>
 </html>
