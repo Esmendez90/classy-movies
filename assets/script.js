@@ -222,6 +222,8 @@ $("#play-button").on("click", function () {
   $("#main-page").removeClass("hide");
 });
 
+// LocalStorage. When the page loads, the 3 most recent search movies must be displayed
+
 function localstor(input){
   html2 = "";
   store.push(input);
