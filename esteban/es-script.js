@@ -19,6 +19,7 @@ genreContainer.click(function (event) {
   // IF the element I click on matches and element with an id of search-by-title
   // then it is true.
   if (element.matches("#search-by-title") === true) {
+    $("#searchdiv").removeClass("hide");
     console.log("I selected Search by Title");
 
     // If true, then a movieInput block and a search button will be displayed on the page
@@ -33,6 +34,7 @@ genreContainer.click(function (event) {
   // IF I click on any of the genres with matching id's
   // then that element will be true and a message will shown in the console.
   else if (element.matches("#action") === true) {
+    $("#searchdiv").addClass("hide");
     console.log("I selected action genre");
     // Action movies array
     var topAction = [
@@ -52,6 +54,7 @@ genreContainer.click(function (event) {
       console.log(movie);
     }
   } else if (element.matches("#comedy") === true) {
+    $("#searchdiv").addClass("hide");
     console.log("I selected comedy genre");
     // Comedy movies array
     var topComedy = [
@@ -70,6 +73,7 @@ genreContainer.click(function (event) {
       console.log(movie);
     }
   } else if (element.matches("#family") === true) {
+    $("#searchdiv").addClass("hide");
     console.log("I selected family genre");
 
     var topFamily = [
@@ -89,6 +93,7 @@ genreContainer.click(function (event) {
       console.log(movie);
     }
   } else if (element.matches("#romance") === true) {
+    $("#searchdiv").addClass("hide");
     console.log("I selected romance genre");
 
     var topRomance = [
@@ -108,6 +113,7 @@ genreContainer.click(function (event) {
       console.log(movie);
     }
   } else if (element.matches("#drama") === true) {
+    $("#searchdiv").addClass("hide");
     console.log("I selected drama genre");
 
     var topDrama = [

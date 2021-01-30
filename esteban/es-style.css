@@ -31,6 +31,21 @@ ul label {
     text-align: center;
 }
 
+/* styles the search block */
+#movieInput {
+  height: 50px;
+  width: 400px;
+  border: solid;
+  border-color: black;
+}
+
+/* styles the search button */
+#searchBtn {
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+}
+
 /* Styles the movie's name and year, and plot */
 h3,
 p {
@@ -40,6 +55,7 @@ p {
 /* Styles only the movie's plot */
 p {
   font-size: 20px;
+  margin: 20px;
 }
 
 /* this class is used to hide or show the Welcome page and the Main Movie search page */
