@@ -5,6 +5,10 @@ var title;
 var year;
 var poster;
 var plot;
+var localstore = "";
+var html2 = '';
+var store = [];
+var x = 0;
 
 var queryURL = `https://www.omdbapi.com/?t=${movie}&apikey=8e35679c`;
 
@@ -162,9 +166,12 @@ function getmovie() {
   movie = document.getElementById("movieInput").value;
   // Var movie will be updated as the user searches for other movies
   // queryURL = `https://www.omdbapi.com/?t=${movie}&apikey=8e35679c`;
+  localstor(movie);
+  x++;
   $("#display-movie-data").empty();
 
   getmovieInfo(movie);
+ 
 }
 
 function getmovieInfo(movieInput) {
@@ -214,3 +221,20 @@ $("#play-button").on("click", function () {
   // The movie search page will be displayed
   $("#main-page").removeClass("hide");
 });
+
+function localstor(input){
+  html2 = "";
+  store.push(input);
+  localStorage.setItem("input", store.join());
+  var res = localStorage.getItem("input").split(",");
+  console.log(res);
+  for(var i = res.length-2; i > -1; i--){
+  getmovieInfo(res[i])
+  }
+  for(var i = 0; i < res.length; i++){
+    html2 = html2 + res[i] + '<br>';
+  }
+  console.log(html2);
+  document.getElementById("recents").innerHTML= html2;
+  //
+}
