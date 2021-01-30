@@ -5,27 +5,10 @@ var title;
 var year;
 var poster;
 var plot;
-<<<<<<< HEAD
-//api 1
-var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=8e35679c";
-var genre;
-//api2
-const settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://unogs-unogs-v1.p.rapidapi.com/api.cgi?t=genres",
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "c02baffc94msh061b9cb5d9eb126p136c7cjsn011694b76609",
-		"x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com"
-	}
-};
-
-$.ajax(settings).done(function (response) {
-	console.log(response);
-});
-=======
->>>>>>> origin/esteban-branch
+var localstore = "";
+var html2 = '';
+var store = [];
+var x = 0;
 
 var queryURL = `https://www.omdbapi.com/?t=${movie}&apikey=8e35679c`;
 
@@ -170,53 +153,10 @@ genreContainer.click(function (event) {
     }
   }
 
-<<<<<<< HEAD
-  //-----------------GET MOVIE INFO----------------------
-
-  function getmovie() {
-    //api 1
-    movie = document.getElementById("id-movieinput").value;
-    queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=8e35679c";
-    getmovieinfo();
-  }
-  function getmovieinfo() {
-    $.ajax({
-      type: "GET",
-      url: queryURL,
-      dataType: "json",
-      success: function (data) {
-        console.log(data);
-
-        console.log(data.Title);
-        title = data.Title;
-        console.log(data.Year);
-        year = data.Year;
-        console.log(data.Poster);
-        poster = data.Poster;
-        console.log(data.Plot);
-        plot = data.Plot;
-        htmledit();
-      },
-    });
-  }
-  function htmledit() {
-    var html =
-      "<h3> " +
-      title +
-      "<br> " +
-      year +
-      '</h3> <p1><img src = "' +
-      poster +
-      '" style = "width:200px;height:300px;"><br>' +
-      plot +
-      "</p1>";
-    document.getElementById("id-movieName").innerHTML = html;
-=======
   // IF I click anywhere else, within the form* element
   // then the following message will be displayed in the console.
   else {
     console.log("Please, select a genre or search by title");
->>>>>>> origin/esteban-branch
   }
 });
 
@@ -226,9 +166,12 @@ function getmovie() {
   movie = document.getElementById("movieInput").value;
   // Var movie will be updated as the user searches for other movies
   // queryURL = `https://www.omdbapi.com/?t=${movie}&apikey=8e35679c`;
+  localstor(movie);
+  x++;
   $("#display-movie-data").empty();
 
   getmovieInfo(movie);
+ 
 }
 
 function getmovieInfo(movieInput) {
@@ -278,3 +221,20 @@ $("#play-button").on("click", function () {
   // The movie search page will be displayed
   $("#main-page").removeClass("hide");
 });
+
+function localstor(input){
+  html2 = "";
+  store.push(input);
+  localStorage.setItem("input", store.join());
+  var res = localStorage.getItem("input").split(",");
+  console.log(res);
+  for(var i = res.length-2; i > -1; i--){
+  getmovieInfo(res[i])
+  }
+  for(var i = 0; i < res.length; i++){
+    html2 = html2 + res[i] + '<br>';
+  }
+  console.log(html2);
+  document.getElementById("recents").innerHTML= html2;
+  //
+}
