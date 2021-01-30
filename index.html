@@ -33,11 +33,7 @@
 
       <!-- Play button -->
       <button id="play-button" type="button" class="btn btn-primary btn-lg">
-        <i
-          id="play-button"
-          class="fa fa-play"
-          style="font-size: 50px; color: black"
-        ></i>
+        <i class="fa fa-play" style="font-size: 50px; color: black"></i>
       </button>
 
       <!-- Forrest Gump quote -->
@@ -61,7 +57,7 @@
       <!-- Form-list of movie genres-->
 
       <form class="options">
-        <ul id=".id-ul">
+        <ul class="id-ul">
           <li
             class="genre"
             data-text-filter="romance"
@@ -110,11 +106,11 @@
       </form>
 
       <!-- User input field and search button-->
-      <section class="filterGenres">
+      <div class="filterGenres">
         <div class="tab-content" style="position: relative">
           <div class="text-filter">
-            <!--other-->
-            <ul id="id-ul">
+            <!-- Search by title -->
+            <ul class="id-ul">
               <li
                 class="other"
                 data-text-filter="other"
@@ -126,17 +122,13 @@
                   id="#gnere6"
                   value="other"
                 />
-                <label for="#gnere6">OTHER</label>
+                <label for="#gnere6">SEARCH BY TITLE</label>
               </li>
             </ul>
-            <div id="id-searchdiv">
-              <!-- User input field-->
-
-              <!-- Search button-->
-            </div>
+            <div id="id-searchdiv"></div>
           </div>
         </div>
-      </section>
+      </div>
 
       <!-- Image of movie 1-->
       <div class="col-sm-4" style="text-align: center">
@@ -164,10 +156,7 @@
 
       <!-- Image of default movie: Titanic-->
       <div class="col-sm-4">
-        <p
-          style="text-align: center"
-          id="id-movieName"
-        ></p>
+        <p style="text-align: center" id="id-movieName"></p>
       </div>
     </main><br><br><br>
     <script src="assets/script.js"></script>
