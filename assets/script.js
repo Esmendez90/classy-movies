@@ -27,7 +27,7 @@ genreContainer.click(function (event) {
     console.log("I selected Search by Title");
 
     // If true, then a movieInput block and a search button will be displayed on the page
-    var html = `<input id="movieInput" type="text" placeholder="Search Movie"/> 
+    var html = `<input id="movieInput" type="text" placeholder="Movie Title"/> 
       <input id="searchBtn" type="button" value="search"/>`;
     document.getElementById("searchdiv").innerHTML = html;
 
