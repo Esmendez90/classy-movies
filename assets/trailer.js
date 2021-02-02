@@ -5,6 +5,10 @@ var title;
 var year;
 var poster;
 var plot;
+var localstore = "";
+var html2 = '';
+var store = [];
+var x = 0;
 
 //var queryURL = `https://www.omdbapi.com/?t=${movie}&apikey=8e35679c`;
 
@@ -23,7 +27,7 @@ genreContainer.click(function (event) {
     console.log("I selected Search by Title");
 
     // If true, then a movieInput block and a search button will be displayed on the page
-    var html = `<input id="movieInput" type="text" placeholder="Search Movie"/> 
+    var html = `<input id="movieInput" type="text" placeholder="Movie Title"/> 
       <input id="searchBtn" type="button" value="search"/>`;
     document.getElementById("searchdiv").innerHTML = html;
 
@@ -160,12 +164,16 @@ genreContainer.click(function (event) {
 function getmovie() {
   // The name (aka value) of the movie that the user types into the search block will be stored in var movie
   movie = document.getElementById("movieInput").value;
-  // The element with an id of display-movie-data has to be empty
+  // Var movie will be updated as the user searches for other movies
+  // queryURL = `https://www.omdbapi.com/?t=${movie}&apikey=8e35679c`;
+  localstor(movie);
+  x++;
   $("#display-movie-data").empty();
 
   movieTrailer(movie);
 
   getmovieInfo(movie);
+ 
 }
 
 function getmovieInfo(movieInput) {
@@ -193,7 +201,7 @@ function getmovieInfo(movieInput) {
 }
 
 function render(title,year,poster,plot) {
-  // The movie's data will be appended to different elements and saved into var wrapper
+  // The movie's data will be appended to different elements and saved into var html
   var wrapper = document.createElement("div");
   wrapper.classList.add("col-sm-4");
   wrapper.classList.add("movie-col");
@@ -206,7 +214,7 @@ function render(title,year,poster,plot) {
   document.getElementById("display-movie-data").append(wrapper);
 }
 
-getmovieInfo();
+getmovieInfo(movie);
 
 // When the user clicks on the playButton then,
 $("#play-button").on("click", function () {
@@ -215,6 +223,26 @@ $("#play-button").on("click", function () {
   // The movie search page will be displayed
   $("#main-page").removeClass("hide");
 });
+
+// LocalStorage. When the page loads, the 3 most recent search movies must be displayed
+
+function localstor(input){
+  html2 = "";
+  store.push(input);
+  localStorage.setItem("input", store.join());
+  var res = localStorage.getItem("input").split(",");
+  console.log(res);
+  for(var i = res.length-2; i > -1; i--){
+  getmovieInfo(res[i])
+  }
+  for(var i = 0; i < res.length; i++){
+    html2 = html2 + res[i] + '<br>';
+  }
+  console.log(html2);
+  document.getElementById("recents").innerHTML= html2;
+  //
+}
+
 
 // ----------- GET MOVIE TRAILER -----------------------
 
@@ -244,3 +272,5 @@ $.ajax({
   });
 });
 }
+
+
