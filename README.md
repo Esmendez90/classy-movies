@@ -8,11 +8,11 @@
 
 ## User Story
 
-As a user, who loves good old classy movies:  
+As a user, who loves good old classy movies, I want the application to:  
 
-1. I want the application to display the data of the movie that I search for. This includes movie title, year, poster, and plot. 
-2. I want to be able to click on a specific genre and get a list of movies for the genre that I clicked on.
-3. I want to be able to click on the poster of the movie and be directed to a youTube video trailer of that movie. 
+1. Display the data of the movie that I search for. This includes movie title, year, poster, and plot. 
+2. Be able to click on a specific genre and get a list of movies for the genre that I clicked on.
+3. Be able to click on the poster of the movie and be directed to a youTube video trailer of that movie. 
 
 ## Table of Content
 
