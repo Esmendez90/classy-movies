@@ -1,6 +1,6 @@
 //-------------------------------------vArs----------------------
 
-var movie; //titanic is set as a default movie that will display on page
+var movie = "titanic"; //titanic is set as a default movie that will display on page
 var title;
 var year;
 var poster;
@@ -17,12 +17,13 @@ var genreContainer = $(".movie-genres-container");
 
 // Event listener targets the entire form* element
 genreContainer.click(function (event) {
-  event.preventDefault();
+  //event.preventDefault();
   // The element that I click on will be save in var element
   var element = event.target;
   // IF the element I click on matches and element with an id of search-by-title
   // then it is true.
   if (element.matches("#search-by-title") === true) {
+    
     $("#searchdiv").removeClass("hide");
     console.log("I selected Search by Title");
 
@@ -38,6 +39,7 @@ genreContainer.click(function (event) {
   // IF I click on any of the genres with matching id's
   // then that element will be true and a message will shown in the console.
   else if (element.matches("#action") === true) {
+    
     $("#searchdiv").addClass("hide");
     console.log("I selected action genre");
     // Action movies array
@@ -272,5 +274,6 @@ $.ajax({
   });
 });
 }
+
 
 
