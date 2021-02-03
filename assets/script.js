@@ -12,6 +12,7 @@ var x = 0;
 
 var queryURL = `https://www.omdbapi.com/?t=${movie}&apikey=8e35679c`;
 
+
 // Var genreContainer stores the form* element in html line 59 with an id of movie-genres-container
 var genreContainer = $(".movie-genres-container");
 
@@ -20,9 +21,11 @@ genreContainer.click(function (event) {
   event.preventDefault();
   // The element that I click on will be save in var element
   var element = event.target;
+  
   // IF the element I click on matches and element with an id of search-by-title
   // then it is true.
   if (element.matches("#search-by-title") === true) {
+
     $("#searchdiv").removeClass("hide");
     console.log("I selected Search by Title");
 
@@ -38,8 +41,10 @@ genreContainer.click(function (event) {
   // IF I click on any of the genres with matching id's
   // then that element will be true and a message will shown in the console.
   else if (element.matches("#action") === true) {
+    
     $("#searchdiv").addClass("hide");
     console.log("I selected action genre");
+    
     // Action movies array
     var topAction = [
       "the terminator",
@@ -61,6 +66,7 @@ genreContainer.click(function (event) {
       getmovieInfo(movie);
     }
   } else if (element.matches("#comedy") === true) {
+ 
     $("#searchdiv").addClass("hide");
     console.log("I selected comedy genre");
     // Comedy movies array
@@ -83,6 +89,7 @@ genreContainer.click(function (event) {
       getmovieInfo(movie);
     }
   } else if (element.matches("#family") === true) {
+
     $("#searchdiv").addClass("hide");
     console.log("I selected family genre");
 
@@ -106,6 +113,7 @@ genreContainer.click(function (event) {
       getmovieInfo(movie);
     }
   } else if (element.matches("#romance") === true) {
+ 
     $("#searchdiv").addClass("hide");
     console.log("I selected romance genre");
 
@@ -129,6 +137,7 @@ genreContainer.click(function (event) {
       getmovieInfo(movie);
     }
   } else if (element.matches("#drama") === true) {
+ 
     $("#searchdiv").addClass("hide");
     console.log("I selected drama genre");
 
@@ -166,12 +175,15 @@ function getmovie() {
   movie = document.getElementById("movieInput").value;
   // Var movie will be updated as the user searches for other movies
   // queryURL = `https://www.omdbapi.com/?t=${movie}&apikey=8e35679c`;
-  localstor(movie);
+  if(!(movie == undefined)){
+    localstor(movie);
+  } 
+  
   x++;
   $("#display-movie-data").empty();
-
+  
   getmovieInfo(movie);
- 
+  movieTrailer(movie);
 }
 
 function getmovieInfo(movieInput) {
@@ -222,21 +234,97 @@ $("#play-button").on("click", function () {
   $("#main-page").removeClass("hide");
 });
 
-// LocalStorage. When the page loads, the 3 most recent search movies must be displayed
 
-function localstor(input){
-  html2 = "";
-  store.push(input);
-  localStorage.setItem("input", store.join());
-  var res = localStorage.getItem("input").split(",");
-  console.log(res);
-  for(var i = res.length-2; i > -1; i--){
-  getmovieInfo(res[i])
+// ----------- GET MOVIE TRAILER -----------------------
+
+function movieTrailer(movieInput){
+
+  var apiKey = "c7d300bef019d500e53ccb41d5680608";
+  
+  var trailerURL = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movieInput}`;
+  
+  $.ajax({
+    url: trailerURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+    var movieId = response.results[0].id;
+    console.log(movieId);
+  
+    $.ajax({
+      url: `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`,
+      method: "GET",
+    }).then(function (response) {
+      console.log(response);
+      console.log(response.results[0].key);
+      var trailerKey = response.results[0].key;
+  
+      console.log(`https://www.youtube.com/watch?v=${trailerKey}`);
+    });
+  });
   }
-  for(var i = 0; i < res.length; i++){
-    html2 = html2 + res[i] + '<br>';
+
+
+// LocalStorage. When the page loads, the most recent search movies must be displayed
+
+{//-----------------------------------------------getmovieinfo2 function is for most recent searches only!!!!
+  function getmovieInfo2(movieInput) {
+    queryURL = `https://www.omdbapi.com/?t=${movieInput}&apikey=8e35679c`;
+    // ajax request will get us the movie's title, year, poster, and plot.
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+    }).then(function (response) {
+      //console.log(response);
+      title = response.Title;
+      console.log('2',title);
+  
+      year = response.Year;
+      console.log('2',year);
+  
+      poster = response.Poster;
+      console.log('2',poster);
+  
+      plot = response.Plot;
+      console.log('2',plot);
+  
+      render2(title,year,poster,plot);
+    });
   }
-  console.log(html2);
-  document.getElementById("recents").innerHTML= html2;
-  //
-}
+  
+  function render2(title,year,poster,plot) {
+    // The movie's data will be appended to different elements and saved into var html
+    var wrapper = document.createElement("div");
+    wrapper.classList.add("col-sm-4");
+    wrapper.classList.add("movie-col");
+    var html = `<h3>${title}<br>${year}</h3> 
+    <img src ="${poster}" style="width:200px;height:300px;"> 
+    <p>${plot}</p>`;
+    wrapper.innerHTML = html;
+  
+    // Var html will be displayed in the element with an id of display-movie-data. Line 103 of html.
+    document.getElementById("recents").append(wrapper);
+  }
+  
+  getmovieInfo2(movie);
+  }//----------------------------------------------------------------------------------------------------------
+  
+  function localstor(input){
+    var res = [];
+    if(!(res.includes(input))){
+      html2 = "";
+      input = input + ","// store.push(input);
+      localStorage.setItem("input", input);
+      res = localStorage.getItem("input").split(",");
+      console.log(res);
+      for(var i = 0; i < res.length - 1; i++){
+          getmovieInfo2(res[i]);
+      }
+    } 
+    
+ 
+    // console.log(html2);
+    // document.getElementById("recents").innerHTML= html2;
+    //
+  }
+  
