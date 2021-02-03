@@ -29,7 +29,7 @@ We want users to be able to quickly find classic movies that they loved when the
 
 ## Description
 
-Create a Classy Movie application that allows you to search for any classic movies. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery. Use omd movie api for requesting the movie data, and themoviedb api for the movie trailer. 
+Create a Classy Movie application that allows you to search for any classic movies. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery. Use omd movie api to write code that requests the movie data, and themoviedb api to write code that requests the movie trailer.
 
 ## Requirements 
 
