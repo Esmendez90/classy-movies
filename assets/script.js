@@ -21,6 +21,7 @@ $("#drama").prop("checked", false);
 
 // Var genreContainer stores the form* element in html line 59 with an id of movie-genres-container
 var genreContainer = $(".movie-genres-container");
+var dsm = $(".dmd");
 
 // Event listener targets the entire form* element
 genreContainer.click(function (event) {
@@ -209,7 +210,89 @@ genreContainer.click(function (event) {
   }
 });
 
+// //----------make boxes checked------------------------
+{// var optionb = [
+//   document.getElementById("action"),
+//   document.getElementById("comedy"),
+//   document.getElementById("family"),
+//   document.getElementById("romance"),
+//   document.getElementById("drama"),
+//   document.getElementById("search-by-title")
+// ];
+// function one(){
+//   optionb[0].checked = true;
+//   optionb[1].checked = false;
+//   optionb[2].checked = false;
+//   optionb[3].checked = false;
+//   optionb[4].checked = false;
+//   optionb[5].checked = false;
+// }
+// function two(){
+//   optionb[1].checked = true;
+//   optionb[0].checked = false;
+//   optionb[2].checked = false;
+//   optionb[3].checked = false;
+//   optionb[4].checked = false;
+//   optionb[5].checked = false;
+// }
+// function three(){
+//   optionb[2].checked = true;
+//   optionb[1].checked = false;
+//   optionb[0].checked = false;
+//   optionb[3].checked = false;
+//   optionb[4].checked = false;
+//   optionb[5].checked = false;
+// }
+// function four(){
+//   optionb[3].checked = true;
+//   optionb[1].checked = false;
+//   optionb[2].checked = false;
+//   optionb[0].checked = false;
+//   optionb[4].checked = false;
+//   optionb[5].checked = false;
+// }
+// function five(){
+//   optionb[4].checked = true;
+//   optionb[1].checked = false;
+//   optionb[2].checked = false;
+//   optionb[3].checked = false;
+//   optionb[0].checked = false;
+//   optionb[5].checked = false;
+// }
+// function six(){
+//   optionb[5].checked = true;
+//   optionb[1].checked = false;
+//   optionb[2].checked = false;
+//   optionb[3].checked = false;
+//   optionb[4].checked = false;
+//   optionb[0].checked = false;
+// }
+//   if(x == 1){
+//     one();
 
+//   }
+//   else if(x == 2){
+//     two();
+//   }
+//   else if(x == 3){
+//     three();
+//   }
+//   else if(x == 4){
+//     four();
+//   }
+//   else if(x == 5){
+//     five();
+//   }
+//   else if(x == 6){
+//     six();
+//   }
+}
+//-------------------------------------------------make the pictures clickable-------------------
+dsm.click(function(event){
+  var element = event.target;
+  var id = element.id;
+  document.getElementById(id).addEventListener("click", movieTrailer(id));
+});
 
 // ---------------- GET MOVIE INFO ----------------------
 function getmovie() {
@@ -222,7 +305,6 @@ function getmovie() {
   } 
   $("#display-movie-data").empty();
   getmovieInfo(movie);
-  movieTrailer(movie);
 }
 
 function getmovieInfo(movieInput) {
@@ -255,7 +337,7 @@ function render(title, year, poster, plot) {
   wrapper.classList.add("col-sm-4");
   wrapper.classList.add("movie-col");
   var html = `<h3>${title}<br>${year}</h3> 
-  <img src ="${poster}" style="width:200px;height:300px;"> 
+  <img src ="${poster}" id="${title}"style="width:200px;height:300px;"> 
   <p>${plot}</p>`;
   wrapper.innerHTML = html;
 
@@ -293,8 +375,8 @@ function movieTrailer(movieInput) {
       //console.log(response);
       //console.log(response.results[0].key);
       var trailerKey = response.results[0].key;
-      var movieTrailer = `https://www.youtube.com/watch?v=${trailerKey}`;
-      console.log(movieTrailer);
+      console.log(`https://www.youtube.com/watch?v=${trailerKey}`);
+      window.location = `https://www.youtube.com/watch?v=${trailerKey}`;
     });
   });
 }
@@ -333,7 +415,7 @@ function movieTrailer(movieInput) {
     wrapper.classList.add("col-sm-4");
     wrapper.classList.add("movie-col");
     var html = `<h3>${title}<br>${year}</h3> 
-    <img src ="${poster}" style="width:200px;height:300px;"> 
+    <img src = "${poster}" style="width:200px;height:300px;"> 
     <p>${plot}</p>`;
     wrapper.innerHTML = html;
 
