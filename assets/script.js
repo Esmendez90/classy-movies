@@ -285,19 +285,19 @@ function movieTrailer(movieInput) {
     url: trailerURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
+    //console.log(response);
     var movieId = response.results[0].id;
-    console.log(movieId);
+    //console.log(movieId);
 
     $.ajax({
       url: `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
-      console.log(response.results[0].key);
+      //console.log(response);
+      //console.log(response.results[0].key);
       var trailerKey = response.results[0].key;
-
-      console.log(`https://www.youtube.com/watch?v=${trailerKey}`);
+      var movieTrailer = `https://www.youtube.com/watch?v=${trailerKey}`;
+      console.log(movieTrailer);
     });
   });
 }
@@ -345,7 +345,7 @@ function movieTrailer(movieInput) {
   }
 
   getmovieInfo2(movie);
-  
+
 } //------------------------- Local Storage --------------------------------------
 
 function localstor(input) {
