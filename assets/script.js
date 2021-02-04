@@ -209,6 +209,8 @@ genreContainer.click(function (event) {
   }
 });
 
+
+
 // ---------------- GET MOVIE INFO ----------------------
 function getmovie() {
   // The name (aka value) of the movie that the user types into the search block will be stored in var movie
@@ -217,11 +219,8 @@ function getmovie() {
   // queryURL = `https://www.omdbapi.com/?t=${movie}&apikey=8e35679c`;
   if (!(movie == undefined)) {
     localstor(movie);
-  }
-
-  x++;
+  } 
   $("#display-movie-data").empty();
-
   getmovieInfo(movie);
   movieTrailer(movie);
 }
@@ -263,9 +262,7 @@ function render(title, year, poster, plot) {
   // Var html will be displayed in the element with an id of display-movie-data. Line 103 of html.
   document.getElementById("display-movie-data").append(wrapper);
 }
-
 getmovieInfo(movie);
-
 // When the user clicks on the playButton then,
 $("#play-button").on("click", function () {
   // The Welcome page will hide
