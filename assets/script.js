@@ -25,7 +25,7 @@ genreContainer.click(function (event) {
   // IF the element I click on matches and element with an id of search-by-title
   // then it is true.
   if (element.matches("#search-by-title") === true) {
-
+    x = 6;
     $("#searchdiv").removeClass("hide");
     console.log("I selected Search by Title");
 
@@ -41,7 +41,7 @@ genreContainer.click(function (event) {
   // IF I click on any of the genres with matching id's
   // then that element will be true and a message will shown in the console.
   else if (element.matches("#action") === true) {
-    
+    x = 1;
     $("#searchdiv").addClass("hide");
     console.log("I selected action genre");
     
@@ -66,7 +66,7 @@ genreContainer.click(function (event) {
       getmovieInfo(movie);
     }
   } else if (element.matches("#comedy") === true) {
- 
+    x = 2;
     $("#searchdiv").addClass("hide");
     console.log("I selected comedy genre");
     // Comedy movies array
@@ -89,7 +89,7 @@ genreContainer.click(function (event) {
       getmovieInfo(movie);
     }
   } else if (element.matches("#family") === true) {
-
+    x = 3;
     $("#searchdiv").addClass("hide");
     console.log("I selected family genre");
 
@@ -113,7 +113,7 @@ genreContainer.click(function (event) {
       getmovieInfo(movie);
     }
   } else if (element.matches("#romance") === true) {
- 
+    x = 4;
     $("#searchdiv").addClass("hide");
     console.log("I selected romance genre");
 
@@ -137,7 +137,7 @@ genreContainer.click(function (event) {
       getmovieInfo(movie);
     }
   } else if (element.matches("#drama") === true) {
- 
+    x = 5;
     $("#searchdiv").addClass("hide");
     console.log("I selected drama genre");
 
@@ -169,6 +169,83 @@ genreContainer.click(function (event) {
   }
 });
 
+// //----------make boxes checked------------------------
+// var optionb = [
+//   document.getElementById("action"),
+//   document.getElementById("comedy"),
+//   document.getElementById("family"),
+//   document.getElementById("romance"),
+//   document.getElementById("drama"),
+//   document.getElementById("search-by-title")
+// ];
+// function one(){
+//   optionb[0].checked = true;
+//   optionb[1].checked = false;
+//   optionb[2].checked = false;
+//   optionb[3].checked = false;
+//   optionb[4].checked = false;
+//   optionb[5].checked = false;
+// }
+// function two(){
+//   optionb[1].checked = true;
+//   optionb[0].checked = false;
+//   optionb[2].checked = false;
+//   optionb[3].checked = false;
+//   optionb[4].checked = false;
+//   optionb[5].checked = false;
+// }
+// function three(){
+//   optionb[2].checked = true;
+//   optionb[1].checked = false;
+//   optionb[0].checked = false;
+//   optionb[3].checked = false;
+//   optionb[4].checked = false;
+//   optionb[5].checked = false;
+// }
+// function four(){
+//   optionb[3].checked = true;
+//   optionb[1].checked = false;
+//   optionb[2].checked = false;
+//   optionb[0].checked = false;
+//   optionb[4].checked = false;
+//   optionb[5].checked = false;
+// }
+// function five(){
+//   optionb[4].checked = true;
+//   optionb[1].checked = false;
+//   optionb[2].checked = false;
+//   optionb[3].checked = false;
+//   optionb[0].checked = false;
+//   optionb[5].checked = false;
+// }
+// function six(){
+//   optionb[5].checked = true;
+//   optionb[1].checked = false;
+//   optionb[2].checked = false;
+//   optionb[3].checked = false;
+//   optionb[4].checked = false;
+//   optionb[0].checked = false;
+// }
+//   if(x == 1){
+//     one();
+
+//   }
+//   else if(x == 2){
+//     two();
+//   }
+//   else if(x == 3){
+//     three();
+//   }
+//   else if(x == 4){
+//     four();
+//   }
+//   else if(x == 5){
+//     five();
+//   }
+//   else if(x == 6){
+//     six();
+//   }
+
 // ---------------- GET MOVIE INFO ----------------------
 function getmovie() {
   // The name (aka value) of the movie that the user types into the search block will be stored in var movie
@@ -178,10 +255,7 @@ function getmovie() {
   if(!(movie == undefined)){
     localstor(movie);
   } 
-  
-  x++;
   $("#display-movie-data").empty();
-  
   getmovieInfo(movie);
   movieTrailer(movie);
 }
@@ -223,9 +297,7 @@ function render(title,year,poster,plot) {
   // Var html will be displayed in the element with an id of display-movie-data. Line 103 of html.
   document.getElementById("display-movie-data").append(wrapper);
 }
-
 getmovieInfo(movie);
-
 // When the user clicks on the playButton then,
 $("#play-button").on("click", function () {
   // The Welcome page will hide
@@ -233,7 +305,6 @@ $("#play-button").on("click", function () {
   // The movie search page will be displayed
   $("#main-page").removeClass("hide");
 });
-
 
 // ----------- GET MOVIE TRAILER -----------------------
 
