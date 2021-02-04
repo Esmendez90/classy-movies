@@ -15,6 +15,7 @@ var queryURL = `https://www.omdbapi.com/?t=${movie}&apikey=8e35679c`;
 
 // Var genreContainer stores the form* element in html line 59 with an id of movie-genres-container
 var genreContainer = $(".movie-genres-container");
+var dsm = $(".dmd");
 
 // Event listener targets the entire form* element
 genreContainer.click(function (event) {
@@ -170,7 +171,7 @@ genreContainer.click(function (event) {
 });
 
 // //----------make boxes checked------------------------
-// var optionb = [
+{// var optionb = [
 //   document.getElementById("action"),
 //   document.getElementById("comedy"),
 //   document.getElementById("family"),
@@ -245,6 +246,13 @@ genreContainer.click(function (event) {
 //   else if(x == 6){
 //     six();
 //   }
+}
+//-------------------------------------------------make the pictures clickable-------------------
+dsm.click(function(event){
+  var element = event.target;
+  var id = element.id;
+  document.getElementById(id).addEventListener("click", movieTrailer(id));
+});
 
 // ---------------- GET MOVIE INFO ----------------------
 function getmovie() {
@@ -257,7 +265,6 @@ function getmovie() {
   } 
   $("#display-movie-data").empty();
   getmovieInfo(movie);
-  movieTrailer(movie);
 }
 
 function getmovieInfo(movieInput) {
@@ -290,7 +297,7 @@ function render(title,year,poster,plot) {
   wrapper.classList.add("col-sm-4");
   wrapper.classList.add("movie-col");
   var html = `<h3>${title}<br>${year}</h3> 
-  <img src ="${poster}" style="width:200px;height:300px;"> 
+  <img src ="${poster}" id="${title}"style="width:200px;height:300px;"> 
   <p>${plot}</p>`;
   wrapper.innerHTML = html;
 
@@ -329,8 +336,8 @@ function movieTrailer(movieInput){
       console.log(response);
       console.log(response.results[0].key);
       var trailerKey = response.results[0].key;
-  
       console.log(`https://www.youtube.com/watch?v=${trailerKey}`);
+      window.location = `https://www.youtube.com/watch?v=${trailerKey}`;
     });
   });
   }
@@ -369,7 +376,7 @@ function movieTrailer(movieInput){
     wrapper.classList.add("col-sm-4");
     wrapper.classList.add("movie-col");
     var html = `<h3>${title}<br>${year}</h3> 
-    <img src ="${poster}" style="width:200px;height:300px;"> 
+    <img src = "${poster}" style="width:200px;height:300px;"> 
     <p>${plot}</p>`;
     wrapper.innerHTML = html;
   
