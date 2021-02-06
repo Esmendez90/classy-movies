@@ -222,8 +222,7 @@ dsm.click(function(event){
 function getmovie() {
   // The name (aka value) of the movie that the user types into the search block will be stored in var movie
   movie = document.getElementById("movieInput").value;
-  // Var movie will be updated as the user searches for other movies
-  // queryURL = `https://www.omdbapi.com/?t=${movie}&apikey=8e35679c`;
+  
   if (!(movie == undefined)) {
     localstor(movie);
   } 
