@@ -210,83 +210,7 @@ genreContainer.click(function (event) {
   }
 });
 
-// //----------make boxes checked------------------------
-{// var optionb = [
-//   document.getElementById("action"),
-//   document.getElementById("comedy"),
-//   document.getElementById("family"),
-//   document.getElementById("romance"),
-//   document.getElementById("drama"),
-//   document.getElementById("search-by-title")
-// ];
-// function one(){
-//   optionb[0].checked = true;
-//   optionb[1].checked = false;
-//   optionb[2].checked = false;
-//   optionb[3].checked = false;
-//   optionb[4].checked = false;
-//   optionb[5].checked = false;
-// }
-// function two(){
-//   optionb[1].checked = true;
-//   optionb[0].checked = false;
-//   optionb[2].checked = false;
-//   optionb[3].checked = false;
-//   optionb[4].checked = false;
-//   optionb[5].checked = false;
-// }
-// function three(){
-//   optionb[2].checked = true;
-//   optionb[1].checked = false;
-//   optionb[0].checked = false;
-//   optionb[3].checked = false;
-//   optionb[4].checked = false;
-//   optionb[5].checked = false;
-// }
-// function four(){
-//   optionb[3].checked = true;
-//   optionb[1].checked = false;
-//   optionb[2].checked = false;
-//   optionb[0].checked = false;
-//   optionb[4].checked = false;
-//   optionb[5].checked = false;
-// }
-// function five(){
-//   optionb[4].checked = true;
-//   optionb[1].checked = false;
-//   optionb[2].checked = false;
-//   optionb[3].checked = false;
-//   optionb[0].checked = false;
-//   optionb[5].checked = false;
-// }
-// function six(){
-//   optionb[5].checked = true;
-//   optionb[1].checked = false;
-//   optionb[2].checked = false;
-//   optionb[3].checked = false;
-//   optionb[4].checked = false;
-//   optionb[0].checked = false;
-// }
-//   if(x == 1){
-//     one();
 
-//   }
-//   else if(x == 2){
-//     two();
-//   }
-//   else if(x == 3){
-//     three();
-//   }
-//   else if(x == 4){
-//     four();
-//   }
-//   else if(x == 5){
-//     five();
-//   }
-//   else if(x == 6){
-//     six();
-//   }
-}
 //-------------------------------------------------make the pictures clickable-------------------
 dsm.click(function(event){
   var element = event.target;
@@ -439,8 +363,4 @@ function localstor(input) {
       getmovieInfo2(res[i]);
     }
   }
-
-  // console.log(html2);
-  // document.getElementById("recents").innerHTML= html2;
-  //
 }
